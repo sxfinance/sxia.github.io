@@ -1,8 +1,8 @@
-@import url(https://fonts.googleapis.com/css?family=Lato:300italic,700italic,300,700);
+@import url(https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400,400i|IBM+Plex+Sans+Condensed:400,400i|IBM+Plex+Sans:100,100i,400,400i,700,700i|IBM+Plex+Serif:400,400i);
 
 body {
   padding:50px;
-  font:20px/1.5 Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font:20px/1.5 "IBM Plex Sans", sans-serif;
   color:#222;
   font-weight:300;
 }
