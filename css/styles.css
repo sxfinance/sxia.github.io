@@ -38,6 +38,10 @@ a {
   text-decoration:none;
 }
 
+a:hover {
+    text-decoration: underline;
+}
+
 a small {
   font-size:11px;
   color:#777;
@@ -255,8 +259,8 @@ footer {
 }
 
 
-code { 
-    background: #F1F1F1; 
+code {
+    background: #F1F1F1;
 }
 
 pre {
