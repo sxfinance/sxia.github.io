@@ -188,6 +188,26 @@ footer {
   bottom:50px;
 }
 
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #121212;
+    color: #e0e0e0;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    color: #e0e0e0;
+  }
+
+  p, ul, ol, table, pre, dl {
+    color: #e0e0e0;
+  }
+}
+
+
+
+
 @media print, screen and (max-width: 960px) {
 
   div.wrapper {
