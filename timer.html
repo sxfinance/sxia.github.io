@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wharton Break Timer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #D7DADB;
+        }
+        #timer {
+            font-size: 4em;
+            color: #174A7E;  /* Wharton Blue */
+        }
+        #reconvene {
+            font-size: 1.5em;
+            margin-top: 20px;
+            color: #174A7E;  /* Wharton Blue */
+        }
+    </style>
+</head>
+<body>
+    <div id="timer">00:00</div>
+    <div id="reconvene">We will reconvene at --:--</div>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const minutes = urlParams.get('minutes') || 5;
+        let endTime = new Date();
+        endTime.setMinutes(endTime.getMinutes() + parseInt(minutes));
+
+        const pad = (num) => num < 10 ? '0' + num : num;
+
+        const endSession = () => {
+            document.body.style.backgroundColor = "#174A7E";  /* Wharton Blue */
+            document.getElementById('timer').style.color = "white";
+            document.getElementById('reconvene').style.color = "white";
+            document.getElementById('timer').textContent = "Back to MGEC";
+            document.getElementById('reconvene').textContent = "";
+            clearInterval(interval);
+        }
+
+        const updateDisplay = () => {
+            let now = new Date();
+            let secondsLeft = Math.floor((endTime - now) / 1000);
+            let minsLeft = Math.floor(secondsLeft / 60);
+            let secsLeft = secondsLeft % 60;
+
+            document.getElementById('timer').textContent = pad(minsLeft) + ':' + pad(secsLeft);
+
+            if (secondsLeft <= 0) {
+                endSession();
+            }
+        }
+
+        document.getElementById('reconvene').textContent = "We will reconvene at " + pad(endTime.getHours()) + ':' + pad(endTime.getMinutes());
+
+        updateDisplay();
+        const interval = setInterval(updateDisplay, 1000);
+    </script>
+</body>
+</html>
